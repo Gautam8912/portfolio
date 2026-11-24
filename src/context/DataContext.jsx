@@ -41,6 +41,9 @@ function loadLocalData() {
     const raw = localStorage.getItem(LOCAL_KEY)
     if (!raw) return buildDefaultData()
     const parsed = replaceLegacyIdentity(JSON.parse(raw))
+    if (parsed.profile) {
+      parsed.profile.avatar = '/gautam-kumar.jpg'
+    }
     const defaults = buildDefaultData()
     return { ...defaults, ...parsed, profile: { ...defaults.profile, ...parsed.profile } }
   } catch {
@@ -91,6 +94,7 @@ export function DataProvider({ children }) {
       next.profile = replaceLegacyIdentity(
         profileSnap.exists() ? { ...defaults.profile, ...profileSnap.data() } : defaults.profile
       )
+      next.profile.avatar = '/gautam-kumar.jpg'
       next.settings = replaceLegacyIdentity(
         settingsSnap.exists() ? { ...defaults.settings, ...settingsSnap.data() } : defaults.settings
       )

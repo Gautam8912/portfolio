@@ -13,8 +13,7 @@ export const defaultProfile = {
   location: 'Vijayawada, India',
   email: 'gautam.kumar@example.com',
   phone: '+91 98765 43210',
-  avatar:
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=480&q=80',
+  avatar: '/gautam-kumar.jpg',
   resumeUrl: '',
   about: {
     introduction:
