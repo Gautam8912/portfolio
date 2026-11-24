@@ -25,7 +25,10 @@ function replaceLegacyIdentity(value) {
   if (typeof value === 'string') {
     return value
       .replace(/\b(?:A(?:r)?yan|Arayan)\s+Kapoor\b/gi, 'Gautam Kumar')
-      .replace(/https?:\/\/(?:x\.com|twitter\.com)\/kapoor\b/gi, 'https://x.com/gautamkumar')
+      .replace(/gautam\.kumar@example\.com/gi, '2500032739@kluniversity.in')
+      .replace(/^https?:\/\/github\.com\/gautamkumar\/?$/gi, 'https://github.com/dashboard')
+      .replace(/^https?:\/\/(?:www\.)?linkedin\.com\/in\/gautamkumar\/?$/gi, 'https://www.linkedin.com/feed/')
+      .replace(/^https?:\/\/(?:x\.com\/gautamkumar|twitter\.com\/gautamkumar)\/?$/gi, 'https://x.com/home?lang=en')
   }
   if (Array.isArray(value)) return value.map(replaceLegacyIdentity)
   if (value && typeof value === 'object') {
@@ -43,6 +46,22 @@ function loadLocalData() {
     const parsed = replaceLegacyIdentity(JSON.parse(raw))
     if (parsed.profile) {
       parsed.profile.avatar = '/gautam-kumar.jpg'
+      parsed.profile.email = '2500032739@kluniversity.in'
+      parsed.profile.socials = {
+        ...(parsed.profile.socials || {}),
+        github: 'https://github.com/dashboard',
+        linkedin: 'https://www.linkedin.com/feed/',
+        twitter: 'https://x.com/home?lang=en',
+      }
+    }
+    if (parsed.settings) {
+      parsed.settings.contactEmail = '2500032739@kluniversity.in'
+      parsed.settings.socials = {
+        ...(parsed.settings.socials || {}),
+        github: 'https://github.com/dashboard',
+        linkedin: 'https://www.linkedin.com/feed/',
+        twitter: 'https://x.com/home?lang=en',
+      }
     }
     const defaults = buildDefaultData()
     return { ...defaults, ...parsed, profile: { ...defaults.profile, ...parsed.profile } }
@@ -95,9 +114,23 @@ export function DataProvider({ children }) {
         profileSnap.exists() ? { ...defaults.profile, ...profileSnap.data() } : defaults.profile
       )
       next.profile.avatar = '/gautam-kumar.jpg'
+      next.profile.email = '2500032739@kluniversity.in'
+      next.profile.socials = {
+        ...(next.profile.socials || {}),
+        github: 'https://github.com/dashboard',
+        linkedin: 'https://www.linkedin.com/feed/',
+        twitter: 'https://x.com/home?lang=en',
+      }
       next.settings = replaceLegacyIdentity(
         settingsSnap.exists() ? { ...defaults.settings, ...settingsSnap.data() } : defaults.settings
       )
+      next.settings.contactEmail = '2500032739@kluniversity.in'
+      next.settings.socials = {
+        ...(next.settings.socials || {}),
+        github: 'https://github.com/dashboard',
+        linkedin: 'https://www.linkedin.com/feed/',
+        twitter: 'https://x.com/home?lang=en',
+      }
       next.users = []
       setData((current) => ({ ...current, ...next }))
     } catch (err) {

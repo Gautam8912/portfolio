@@ -11,7 +11,7 @@ export const defaultProfile = {
   intro:
     'Full-stack developer from India who loves turning complex problems into clean, elegant products. I work primarily with React, Node.js and Firebase, and I care deeply about performance, accessibility and detail.',
   location: 'Vijayawada, India',
-  email: 'gautam.kumar@example.com',
+  email: '2500032739@kluniversity.in',
   phone: '+91 98765 43210',
   avatar: '/gautam-kumar.jpg',
   resumeUrl: '',
@@ -30,10 +30,9 @@ export const defaultProfile = {
       'Launch a product of my own, speak at a major developer conference, and keep contributing to tools that make the web faster and more accessible.',
   },
   socials: {
-    github: 'https://github.com/gautamkumar',
-    linkedin: 'https://linkedin.com/in/gautamkumar',
-    twitter: 'https://x.com/gautamkumar',
-    instagram: 'https://instagram.com/gautamkumar',
+    github: 'https://github.com/dashboard',
+    linkedin: 'https://www.linkedin.com/feed/',
+    twitter: 'https://x.com/home?lang=en',
   },
 }
 
@@ -42,11 +41,11 @@ export const defaultSettings = {
   tagline: 'Full-Stack Developer & UI/UX Enthusiast',
   footerText:
     'Crafting premium web experiences with React, Firebase and a strong eye for design. Available for freelance and full-time opportunities.',
-  contactEmail: 'gautam.kumar@example.com',
+  contactEmail: '2500032739@kluniversity.in',
   socials: {
-    github: 'https://github.com/gautamkumar',
-    linkedin: 'https://linkedin.com/in/gautamkumar',
-    twitter: 'https://x.com/gautamkumar',
+    github: 'https://github.com/dashboard',
+    linkedin: 'https://www.linkedin.com/feed/',
+    twitter: 'https://x.com/home?lang=en',
   },
 }
 
